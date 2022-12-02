@@ -1,11 +1,13 @@
 package springmvc.springmvc.repository;
 
+import org.springframework.stereotype.Repository;
 import springmvc.springmvc.domain.Member;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Repository
 public class MemberRepositoryImp implements MemberRepositoryInterface {
 
     private static final MemberRepositoryInterface instance = new MemberRepositoryImp();
@@ -46,6 +48,7 @@ public class MemberRepositoryImp implements MemberRepositoryInterface {
     @Override
     public void update(Long memberId, Member member) {
         Member prevMember = findById(memberId);
+        prevMember.setMemberName(member.getMemberName());
         prevMember.setMemberId(member.getMemberId());
         prevMember.setMemberPassword(member.getMemberPassword());
         prevMember.setPhoneNumber(member.getPhoneNumber());

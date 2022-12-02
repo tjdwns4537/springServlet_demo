@@ -18,7 +18,7 @@ class MemberRepositoryImpTest {
 
     @Test
     void save() {
-        Member member = new Member("tjdwns4537","1234",01074724537);
+        Member member = new Member("tjdwns","tjdwns4537","1234",01074724537);
         Member saveMember = memberRepository.save(member);
 
         Assertions.assertThat(saveMember.getId()).isEqualTo(1L);
@@ -26,7 +26,7 @@ class MemberRepositoryImpTest {
 
     @Test
     void findById() {
-        Member member = new Member("a", "50", 010);
+        Member member = new Member("a", "tjdwns","50", 010);
         Member save = memberRepository.save(member);
 
         Member findMember = memberRepository.findById(member.getId());
