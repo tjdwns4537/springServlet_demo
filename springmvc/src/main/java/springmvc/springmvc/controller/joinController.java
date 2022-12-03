@@ -19,19 +19,21 @@ public class joinController {
 
     private final MemberRepositoryInterface memberRepository;
 
-    @PostMapping("/login")
-    public String login(
-            @RequestParam String id,
-            @RequestParam String pw
-                        ) {
+    @GetMapping("/login")
+    public String login() {
         return "/join/login";
     }
+
+//    @PostMapping("/register")
+//    public String register(Model model) {
+//
+//    }
 
     @GetMapping("/memberView")
     public String memberListView(Model model) { // 회원 목록 조회
         List<Member> members = memberRepository.findAll();
         model.addAttribute("members", members);
-        log.info("log : {}" + model.getAttribute("members"));
+        log.info("info log={}",model.getAttribute("members"));
 
         return "/join/memberView";
     }
